@@ -185,6 +185,7 @@ namespace LifeInsurance
       this.GaussCalc.TabIndex = 13;
       this.GaussCalc.Text = "Рассчитать методом Гаусса";
       this.GaussCalc.UseVisualStyleBackColor = true;
+      this.GaussCalc.Click += new System.EventHandler(this.GaussCalc_Click);
       // 
       // GaussInsuranceFee
       // 

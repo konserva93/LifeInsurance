@@ -57,5 +57,38 @@ namespace LifeInsurance
       PoissonNetSum.Text = (p0 * N).ToString();
       PoissonSurchargeSum.Text = ((p - p0) * N).ToString();
     }
+
+    private void GaussCalc_Click(object sender, EventArgs e)
+    {
+      double GaussQuantile = 1.645; // 5%
+      var clientAlivePayout = double.Parse(clientAlivePayoutInput.Text);
+      var accidentPayout = double.Parse(accidentPayoutInput.Text);
+
+      var clientAliveProbability = double.Parse(clientAliveProbabilityInput.Text);
+      var accidentProbability = double.Parse(accidentProbabilityInput.Text);
+
+      var N = double.Parse(numberOfContractsInput.Text);
+      var paymentAmount = double.Parse(paymentAmountInput.Text);
+
+      var EX = clientAliveProbability * clientAlivePayout + accidentProbability * accidentPayout;
+      var VarX = (clientAliveProbability * clientAlivePayout * clientAlivePayout + accidentProbability * accidentPayout * accidentPayout) - (accidentProbability * accidentProbability);
+      var ES = N * EX;
+      var VarS = N * VarX;
+
+      var U = Math.Sqrt(VarS) * GaussQuantile + ES;
+
+      var p = Math.Round(paymentAmount * U / N);
+      var p0 = Math.Round(paymentAmount * EX);
+
+      GaussInsuranceFee.Text = p.ToString();
+      GaussNet.Text = p0.ToString();
+      GaussSurcharge.Text = (p - p0).ToString();
+
+      GaussInsuranceFeeSum.Text = (p * N).ToString();
+      GaussNetSum.Text = (p0 * N).ToString();
+      GaussSurchargeSum.Text = ((p - p0) * N).ToString();
+
+      MessageBox.Show(U.ToString());
+    }
   }
 }

@@ -61,6 +61,7 @@ namespace LifeInsurance
     private void GaussCalc_Click(object sender, EventArgs e)
     {
       double GaussQuantile = 1.645; // 5%
+
       var clientAlivePayout = double.Parse(clientAlivePayoutInput.Text);
       var accidentPayout = double.Parse(accidentPayoutInput.Text);
 
@@ -70,8 +71,8 @@ namespace LifeInsurance
       var N = double.Parse(numberOfContractsInput.Text);
       var paymentAmount = double.Parse(paymentAmountInput.Text);
 
-      var EX = clientAliveProbability * clientAlivePayout + accidentProbability * accidentPayout;
-      var VarX = (clientAliveProbability * clientAlivePayout * clientAlivePayout + accidentProbability * accidentPayout * accidentPayout) - (accidentProbability * accidentProbability);
+      var EX = (clientAliveProbability * clientAlivePayout) + (accidentProbability * accidentPayout);
+      var VarX = (clientAliveProbability * clientAlivePayout * clientAlivePayout + accidentProbability * accidentPayout * accidentPayout) - (EX * EX);
       var ES = N * EX;
       var VarS = N * VarX;
 
@@ -87,8 +88,67 @@ namespace LifeInsurance
       GaussInsuranceFeeSum.Text = (p * N).ToString();
       GaussNetSum.Text = (p0 * N).ToString();
       GaussSurchargeSum.Text = ((p - p0) * N).ToString();
+    }
 
-      MessageBox.Show(U.ToString());
+    private void GaussCalcGroups_Click(object sender, EventArgs e)
+    {
+      double GaussQuantile = 1.88; // 3%
+
+      var group1ClientAlivePayout = double.Parse(group1ClientAlivePayoutInput.Text);
+      var group1NaturalPayout = double.Parse(group1NaturalPayoutInput.Text);
+      var group1AccidentPayout = double.Parse(group1AccidentPayoutInput.Text);
+
+      var group1ClientAliveProbability = double.Parse(group1ClientAliveProbabilityInput.Text);
+      var group1NaturalProbability = double.Parse(group1NaturalProbabilityInput.Text);
+      var group1AccidentProbability = double.Parse(group1AccidentProbabilityInput.Text);
+
+      var N1 = double.Parse(group1NumberOfContractsInput.Text);
+      var paymentAmount1 = double.Parse(group1PaymentAmountInput.Text);
+
+      var group2ClientAlivePayout = double.Parse(group2ClientAlivePayoutInput.Text);
+      var group2NaturalPayout = double.Parse(group2NaturalPayoutInput.Text);
+      var group2AccidentPayout = double.Parse(group2AccidentPayoutInput.Text);
+
+      var group2ClientAliveProbability = double.Parse(group2ClientAliveProbabilityInput.Text);
+      var group2NaturalProbability = double.Parse(group2NaturalProbabilityInput.Text);
+      var group2AccidentProbability = double.Parse(group2AccidentProbabilityInput.Text);
+
+      var N2 = double.Parse(group2NumberOfContractsInput.Text);
+      var paymentAmount2 = double.Parse(group2PaymentAmountInput.Text);
+
+      var EX1 = Math.Round((group1ClientAlivePayout * group1ClientAliveProbability) + (group1NaturalPayout * group1NaturalProbability) + (group1AccidentPayout * group1AccidentProbability), 4);
+      var VarX1 = Math.Round((group1ClientAlivePayout * group1ClientAlivePayout * group1ClientAliveProbability) + 
+        (group1NaturalPayout * group1NaturalPayout * group1NaturalProbability) + 
+        (group1AccidentPayout * group1AccidentPayout* group1AccidentProbability) - (EX1 * EX1), 4);
+
+      var EX2 = Math.Round((group2ClientAlivePayout * group2ClientAliveProbability) + (group2NaturalPayout * group2NaturalProbability) + (group2AccidentPayout * group2AccidentProbability), 4);
+      var VarX2 = Math.Round((group2ClientAlivePayout * group2ClientAlivePayout * group2ClientAliveProbability) +
+        (group2NaturalPayout * group2NaturalPayout * group2NaturalProbability) +
+        (group2AccidentPayout * group2AccidentPayout * group2AccidentProbability) - (EX2 * EX2), 4);
+
+      var ES = Math.Round(N1 * EX1 + N2 * EX2, 4);
+      var VarS = Math.Round(N1 * VarX1 + N2 * VarX2, 4);
+
+      var RelativeSurcharge = Math.Round((GaussQuantile * Math.Sqrt(VarS)) / ES, 4);
+
+      var p1 = EX1 * (1 + RelativeSurcharge);
+      var p2 = EX2 * (1 + RelativeSurcharge);
+
+      group1AverageRisk.Text = EX1.ToString();
+      group1Dispersion.Text = VarX1.ToString();
+      group1InsuranceFee.Text = Math.Round(p1 * paymentAmount1).ToString();
+      group1Net.Text = Math.Round(EX1 * paymentAmount1).ToString();
+
+      group2AverageRisk.Text = EX2.ToString();
+      group2Dispersion.Text = VarX2.ToString();
+      group2InsuranceFee.Text = Math.Round(p2 * paymentAmount2).ToString();
+      group2Net.Text = Math.Round(EX2 * paymentAmount2).ToString();
+
+      averageLoss.Text = ES.ToString();
+      dispersionSum.Text = VarS.ToString();
+      relativeSurcharge.Text = RelativeSurcharge.ToString();
+
+      MessageBox.Show(RelativeSurcharge.ToString());
     }
   }
 }

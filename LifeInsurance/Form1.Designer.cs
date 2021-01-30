@@ -89,7 +89,7 @@ namespace LifeInsurance
       this.clientAliveProbabilityInput.Name = "clientAliveProbabilityInput";
       this.clientAliveProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.clientAliveProbabilityInput.TabIndex = 3;
-      this.clientAliveProbabilityInput.Text = "0.997";
+      this.clientAliveProbabilityInput.Text = "0,997";
       // 
       // clientAlivePayoutInput
       // 
@@ -131,7 +131,7 @@ namespace LifeInsurance
       this.accidentProbabilityInput.Name = "accidentProbabilityInput";
       this.accidentProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.accidentProbabilityInput.TabIndex = 7;
-      this.accidentProbabilityInput.Text = "0.003";
+      this.accidentProbabilityInput.Text = "0,003";
       // 
       // label5
       // 
@@ -175,6 +175,7 @@ namespace LifeInsurance
       this.PoissonCalc.TabIndex = 12;
       this.PoissonCalc.Text = "Рассчитать методом Пуассона";
       this.PoissonCalc.UseVisualStyleBackColor = true;
+      this.PoissonCalc.Click += new System.EventHandler(this.PoissonCalc_Click);
       // 
       // GaussCalc
       // 

@@ -83,7 +83,7 @@ namespace LifeInsurance
       this.label42 = new System.Windows.Forms.Label();
       this.group1InsuranceFee = new System.Windows.Forms.TextBox();
       this.label41 = new System.Windows.Forms.Label();
-      this.textBox8 = new System.Windows.Forms.TextBox();
+      this.quantileInput = new System.Windows.Forms.TextBox();
       this.label40 = new System.Windows.Forms.Label();
       this.relativeSurcharge = new System.Windows.Forms.TextBox();
       this.label39 = new System.Windows.Forms.Label();
@@ -163,7 +163,6 @@ namespace LifeInsurance
       this.clientAliveProbabilityInput.Name = "clientAliveProbabilityInput";
       this.clientAliveProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.clientAliveProbabilityInput.TabIndex = 3;
-      this.clientAliveProbabilityInput.Text = "0,997";
       // 
       // clientAlivePayoutInput
       // 
@@ -171,7 +170,6 @@ namespace LifeInsurance
       this.clientAlivePayoutInput.Name = "clientAlivePayoutInput";
       this.clientAlivePayoutInput.Size = new System.Drawing.Size(117, 23);
       this.clientAlivePayoutInput.TabIndex = 2;
-      this.clientAlivePayoutInput.Text = "0";
       // 
       // label3
       // 
@@ -188,7 +186,6 @@ namespace LifeInsurance
       this.accidentPayoutInput.Name = "accidentPayoutInput";
       this.accidentPayoutInput.Size = new System.Drawing.Size(117, 23);
       this.accidentPayoutInput.TabIndex = 5;
-      this.accidentPayoutInput.Text = "1";
       // 
       // label4
       // 
@@ -205,7 +202,6 @@ namespace LifeInsurance
       this.accidentProbabilityInput.Name = "accidentProbabilityInput";
       this.accidentProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.accidentProbabilityInput.TabIndex = 7;
-      this.accidentProbabilityInput.Text = "0,003";
       // 
       // label5
       // 
@@ -222,7 +218,6 @@ namespace LifeInsurance
       this.numberOfContractsInput.Name = "numberOfContractsInput";
       this.numberOfContractsInput.Size = new System.Drawing.Size(144, 23);
       this.numberOfContractsInput.TabIndex = 9;
-      this.numberOfContractsInput.Text = "3000";
       // 
       // label6
       // 
@@ -239,7 +234,6 @@ namespace LifeInsurance
       this.paymentAmountInput.Name = "paymentAmountInput";
       this.paymentAmountInput.Size = new System.Drawing.Size(144, 23);
       this.paymentAmountInput.TabIndex = 11;
-      this.paymentAmountInput.Text = "250000";
       // 
       // PoissonCalc
       // 
@@ -436,7 +430,7 @@ namespace LifeInsurance
       this.tabControl1.Location = new System.Drawing.Point(-3, 1);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
-      this.tabControl1.Size = new System.Drawing.Size(872, 648);
+      this.tabControl1.Size = new System.Drawing.Size(872, 581);
       this.tabControl1.TabIndex = 34;
       // 
       // tabPage1
@@ -486,7 +480,7 @@ namespace LifeInsurance
       this.tabPage1.Location = new System.Drawing.Point(4, 24);
       this.tabPage1.Name = "tabPage1";
       this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage1.Size = new System.Drawing.Size(864, 620);
+      this.tabPage1.Size = new System.Drawing.Size(864, 553);
       this.tabPage1.TabIndex = 0;
       this.tabPage1.Text = "Простой расчет";
       this.tabPage1.UseVisualStyleBackColor = true;
@@ -574,7 +568,7 @@ namespace LifeInsurance
       this.tabPage2.Controls.Add(this.label42);
       this.tabPage2.Controls.Add(this.group1InsuranceFee);
       this.tabPage2.Controls.Add(this.label41);
-      this.tabPage2.Controls.Add(this.textBox8);
+      this.tabPage2.Controls.Add(this.quantileInput);
       this.tabPage2.Controls.Add(this.label40);
       this.tabPage2.Controls.Add(this.relativeSurcharge);
       this.tabPage2.Controls.Add(this.label39);
@@ -628,7 +622,7 @@ namespace LifeInsurance
       this.tabPage2.Location = new System.Drawing.Point(4, 24);
       this.tabPage2.Name = "tabPage2";
       this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage2.Size = new System.Drawing.Size(864, 620);
+      this.tabPage2.Size = new System.Drawing.Size(864, 553);
       this.tabPage2.TabIndex = 1;
       this.tabPage2.Text = "Расчет для групп";
       this.tabPage2.UseVisualStyleBackColor = true;
@@ -636,7 +630,7 @@ namespace LifeInsurance
       // label45
       // 
       this.label45.AutoSize = true;
-      this.label45.Location = new System.Drawing.Point(401, 448);
+      this.label45.Location = new System.Drawing.Point(310, 492);
       this.label45.Name = "label45";
       this.label45.Size = new System.Drawing.Size(86, 15);
       this.label45.TabIndex = 59;
@@ -644,15 +638,16 @@ namespace LifeInsurance
       // 
       // group2Net
       // 
-      this.group2Net.Location = new System.Drawing.Point(526, 445);
+      this.group2Net.Location = new System.Drawing.Point(435, 489);
       this.group2Net.Name = "group2Net";
+      this.group2Net.ReadOnly = true;
       this.group2Net.Size = new System.Drawing.Size(117, 23);
       this.group2Net.TabIndex = 58;
       // 
       // label44
       // 
       this.label44.AutoSize = true;
-      this.label44.Location = new System.Drawing.Point(125, 448);
+      this.label44.Location = new System.Drawing.Point(11, 492);
       this.label44.Name = "label44";
       this.label44.Size = new System.Drawing.Size(86, 15);
       this.label44.TabIndex = 57;
@@ -660,15 +655,16 @@ namespace LifeInsurance
       // 
       // group1Net
       // 
-      this.group1Net.Location = new System.Drawing.Point(250, 445);
+      this.group1Net.Location = new System.Drawing.Point(136, 489);
       this.group1Net.Name = "group1Net";
+      this.group1Net.ReadOnly = true;
       this.group1Net.Size = new System.Drawing.Size(117, 23);
       this.group1Net.TabIndex = 56;
       // 
       // label43
       // 
       this.label43.AutoSize = true;
-      this.label43.Location = new System.Drawing.Point(401, 419);
+      this.label43.Location = new System.Drawing.Point(310, 463);
       this.label43.Name = "label43";
       this.label43.Size = new System.Drawing.Size(119, 15);
       this.label43.TabIndex = 55;
@@ -676,15 +672,16 @@ namespace LifeInsurance
       // 
       // group2InsuranceFee
       // 
-      this.group2InsuranceFee.Location = new System.Drawing.Point(526, 416);
+      this.group2InsuranceFee.Location = new System.Drawing.Point(435, 460);
       this.group2InsuranceFee.Name = "group2InsuranceFee";
+      this.group2InsuranceFee.ReadOnly = true;
       this.group2InsuranceFee.Size = new System.Drawing.Size(117, 23);
       this.group2InsuranceFee.TabIndex = 54;
       // 
       // label42
       // 
       this.label42.AutoSize = true;
-      this.label42.Location = new System.Drawing.Point(125, 419);
+      this.label42.Location = new System.Drawing.Point(11, 463);
       this.label42.Name = "label42";
       this.label42.Size = new System.Drawing.Size(119, 15);
       this.label42.TabIndex = 53;
@@ -692,31 +689,32 @@ namespace LifeInsurance
       // 
       // group1InsuranceFee
       // 
-      this.group1InsuranceFee.Location = new System.Drawing.Point(250, 416);
+      this.group1InsuranceFee.Location = new System.Drawing.Point(136, 460);
       this.group1InsuranceFee.Name = "group1InsuranceFee";
+      this.group1InsuranceFee.ReadOnly = true;
       this.group1InsuranceFee.Size = new System.Drawing.Size(117, 23);
       this.group1InsuranceFee.TabIndex = 52;
       // 
       // label41
       // 
       this.label41.AutoSize = true;
-      this.label41.Location = new System.Drawing.Point(462, 521);
+      this.label41.Location = new System.Drawing.Point(48, 313);
       this.label41.Name = "label41";
       this.label41.Size = new System.Drawing.Size(58, 15);
       this.label41.TabIndex = 51;
       this.label41.Text = "Квантиль";
       // 
-      // textBox8
+      // quantileInput
       // 
-      this.textBox8.Location = new System.Drawing.Point(526, 518);
-      this.textBox8.Name = "textBox8";
-      this.textBox8.Size = new System.Drawing.Size(117, 23);
-      this.textBox8.TabIndex = 50;
+      this.quantileInput.Location = new System.Drawing.Point(112, 310);
+      this.quantileInput.Name = "quantileInput";
+      this.quantileInput.Size = new System.Drawing.Size(117, 23);
+      this.quantileInput.TabIndex = 24;
       // 
       // label40
       // 
       this.label40.AutoSize = true;
-      this.label40.Location = new System.Drawing.Point(135, 579);
+      this.label40.Location = new System.Drawing.Point(603, 463);
       this.label40.Name = "label40";
       this.label40.Size = new System.Drawing.Size(109, 15);
       this.label40.TabIndex = 49;
@@ -724,15 +722,16 @@ namespace LifeInsurance
       // 
       // relativeSurcharge
       // 
-      this.relativeSurcharge.Location = new System.Drawing.Point(250, 576);
+      this.relativeSurcharge.Location = new System.Drawing.Point(718, 460);
       this.relativeSurcharge.Name = "relativeSurcharge";
+      this.relativeSurcharge.ReadOnly = true;
       this.relativeSurcharge.Size = new System.Drawing.Size(117, 23);
       this.relativeSurcharge.TabIndex = 48;
       // 
       // label39
       // 
       this.label39.AutoSize = true;
-      this.label39.Location = new System.Drawing.Point(135, 550);
+      this.label39.Location = new System.Drawing.Point(603, 434);
       this.label39.Name = "label39";
       this.label39.Size = new System.Drawing.Size(67, 15);
       this.label39.TabIndex = 47;
@@ -740,24 +739,24 @@ namespace LifeInsurance
       // 
       // dispersionSum
       // 
-      this.dispersionSum.Location = new System.Drawing.Point(250, 547);
+      this.dispersionSum.Location = new System.Drawing.Point(718, 431);
       this.dispersionSum.Name = "dispersionSum";
+      this.dispersionSum.ReadOnly = true;
       this.dispersionSum.Size = new System.Drawing.Size(117, 23);
       this.dispersionSum.TabIndex = 46;
       // 
       // label38
       // 
-      this.label38.Location = new System.Drawing.Point(250, 490);
+      this.label38.Location = new System.Drawing.Point(718, 374);
       this.label38.Name = "label38";
-      this.label38.Size = new System.Drawing.Size(393, 15);
+      this.label38.Size = new System.Drawing.Size(117, 15);
       this.label38.TabIndex = 45;
       this.label38.Text = "Суммарный иск";
-      this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // label37
       // 
       this.label37.AutoSize = true;
-      this.label37.Location = new System.Drawing.Point(401, 390);
+      this.label37.Location = new System.Drawing.Point(310, 434);
       this.label37.Name = "label37";
       this.label37.Size = new System.Drawing.Size(67, 15);
       this.label37.TabIndex = 44;
@@ -766,30 +765,32 @@ namespace LifeInsurance
       // label36
       // 
       this.label36.AutoSize = true;
-      this.label36.Location = new System.Drawing.Point(401, 361);
+      this.label36.Location = new System.Drawing.Point(310, 405);
       this.label36.Name = "label36";
-      this.label36.Size = new System.Drawing.Size(84, 15);
+      this.label36.Size = new System.Drawing.Size(107, 15);
       this.label36.TabIndex = 43;
-      this.label36.Text = "Средний риск";
+      this.label36.Text = "Среднее значение";
       // 
       // group2Dispersion
       // 
-      this.group2Dispersion.Location = new System.Drawing.Point(526, 387);
+      this.group2Dispersion.Location = new System.Drawing.Point(435, 431);
       this.group2Dispersion.Name = "group2Dispersion";
+      this.group2Dispersion.ReadOnly = true;
       this.group2Dispersion.Size = new System.Drawing.Size(117, 23);
       this.group2Dispersion.TabIndex = 42;
       // 
       // group2AverageRisk
       // 
-      this.group2AverageRisk.Location = new System.Drawing.Point(526, 358);
+      this.group2AverageRisk.Location = new System.Drawing.Point(435, 402);
       this.group2AverageRisk.Name = "group2AverageRisk";
+      this.group2AverageRisk.ReadOnly = true;
       this.group2AverageRisk.Size = new System.Drawing.Size(117, 23);
       this.group2AverageRisk.TabIndex = 41;
       // 
       // label35
       // 
       this.label35.AutoSize = true;
-      this.label35.Location = new System.Drawing.Point(526, 330);
+      this.label35.Location = new System.Drawing.Point(435, 374);
       this.label35.Name = "label35";
       this.label35.Size = new System.Drawing.Size(54, 15);
       this.label35.TabIndex = 40;
@@ -798,23 +799,24 @@ namespace LifeInsurance
       // label34
       // 
       this.label34.AutoSize = true;
-      this.label34.Location = new System.Drawing.Point(135, 521);
+      this.label34.Location = new System.Drawing.Point(603, 405);
       this.label34.Name = "label34";
-      this.label34.Size = new System.Drawing.Size(98, 15);
+      this.label34.Size = new System.Drawing.Size(107, 15);
       this.label34.TabIndex = 39;
-      this.label34.Text = "Средний убыток";
+      this.label34.Text = "Среднее значение";
       // 
       // averageLoss
       // 
-      this.averageLoss.Location = new System.Drawing.Point(250, 518);
+      this.averageLoss.Location = new System.Drawing.Point(718, 402);
       this.averageLoss.Name = "averageLoss";
+      this.averageLoss.ReadOnly = true;
       this.averageLoss.Size = new System.Drawing.Size(117, 23);
       this.averageLoss.TabIndex = 38;
       // 
       // label33
       // 
       this.label33.AutoSize = true;
-      this.label33.Location = new System.Drawing.Point(125, 390);
+      this.label33.Location = new System.Drawing.Point(11, 434);
       this.label33.Name = "label33";
       this.label33.Size = new System.Drawing.Size(67, 15);
       this.label33.TabIndex = 37;
@@ -823,30 +825,32 @@ namespace LifeInsurance
       // label32
       // 
       this.label32.AutoSize = true;
-      this.label32.Location = new System.Drawing.Point(125, 361);
+      this.label32.Location = new System.Drawing.Point(11, 405);
       this.label32.Name = "label32";
-      this.label32.Size = new System.Drawing.Size(84, 15);
+      this.label32.Size = new System.Drawing.Size(107, 15);
       this.label32.TabIndex = 36;
-      this.label32.Text = "Средний риск";
+      this.label32.Text = "Среднее значение";
       // 
       // group1Dispersion
       // 
-      this.group1Dispersion.Location = new System.Drawing.Point(250, 387);
+      this.group1Dispersion.Location = new System.Drawing.Point(136, 431);
       this.group1Dispersion.Name = "group1Dispersion";
+      this.group1Dispersion.ReadOnly = true;
       this.group1Dispersion.Size = new System.Drawing.Size(117, 23);
       this.group1Dispersion.TabIndex = 35;
       // 
       // group1AverageRisk
       // 
-      this.group1AverageRisk.Location = new System.Drawing.Point(250, 358);
+      this.group1AverageRisk.Location = new System.Drawing.Point(136, 402);
       this.group1AverageRisk.Name = "group1AverageRisk";
+      this.group1AverageRisk.ReadOnly = true;
       this.group1AverageRisk.Size = new System.Drawing.Size(117, 23);
       this.group1AverageRisk.TabIndex = 34;
       // 
       // label31
       // 
       this.label31.AutoSize = true;
-      this.label31.Location = new System.Drawing.Point(250, 330);
+      this.label31.Location = new System.Drawing.Point(136, 374);
       this.label31.Name = "label31";
       this.label31.Size = new System.Drawing.Size(51, 15);
       this.label31.TabIndex = 33;
@@ -854,7 +858,7 @@ namespace LifeInsurance
       // 
       // GaussCalcGroups
       // 
-      this.GaussCalcGroups.Location = new System.Drawing.Point(250, 292);
+      this.GaussCalcGroups.Location = new System.Drawing.Point(250, 310);
       this.GaussCalcGroups.Name = "GaussCalcGroups";
       this.GaussCalcGroups.Size = new System.Drawing.Size(393, 23);
       this.GaussCalcGroups.TabIndex = 32;
@@ -940,7 +944,6 @@ namespace LifeInsurance
       this.group2PaymentAmountInput.Name = "group2PaymentAmountInput";
       this.group2PaymentAmountInput.Size = new System.Drawing.Size(144, 23);
       this.group2PaymentAmountInput.TabIndex = 23;
-      this.group2PaymentAmountInput.Text = "50000";
       // 
       // group2NumberOfContractsInput
       // 
@@ -948,7 +951,6 @@ namespace LifeInsurance
       this.group2NumberOfContractsInput.Name = "group2NumberOfContractsInput";
       this.group2NumberOfContractsInput.Size = new System.Drawing.Size(144, 23);
       this.group2NumberOfContractsInput.TabIndex = 22;
-      this.group2NumberOfContractsInput.Text = "3000";
       // 
       // group2AccidentProbabilityInput
       // 
@@ -956,7 +958,6 @@ namespace LifeInsurance
       this.group2AccidentProbabilityInput.Name = "group2AccidentProbabilityInput";
       this.group2AccidentProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.group2AccidentProbabilityInput.TabIndex = 21;
-      this.group2AccidentProbabilityInput.Text = "0,05";
       // 
       // group2NaturalProbabilityInput
       // 
@@ -964,7 +965,6 @@ namespace LifeInsurance
       this.group2NaturalProbabilityInput.Name = "group2NaturalProbabilityInput";
       this.group2NaturalProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.group2NaturalProbabilityInput.TabIndex = 20;
-      this.group2NaturalProbabilityInput.Text = "0,002";
       // 
       // group2ClientAliveProbabilityInput
       // 
@@ -972,7 +972,6 @@ namespace LifeInsurance
       this.group2ClientAliveProbabilityInput.Name = "group2ClientAliveProbabilityInput";
       this.group2ClientAliveProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.group2ClientAliveProbabilityInput.TabIndex = 19;
-      this.group2ClientAliveProbabilityInput.Text = "0,948";
       // 
       // group2AccidentPayoutInput
       // 
@@ -980,7 +979,6 @@ namespace LifeInsurance
       this.group2AccidentPayoutInput.Name = "group2AccidentPayoutInput";
       this.group2AccidentPayoutInput.Size = new System.Drawing.Size(117, 23);
       this.group2AccidentPayoutInput.TabIndex = 18;
-      this.group2AccidentPayoutInput.Text = "7";
       // 
       // group2NaturalPayoutInput
       // 
@@ -988,7 +986,6 @@ namespace LifeInsurance
       this.group2NaturalPayoutInput.Name = "group2NaturalPayoutInput";
       this.group2NaturalPayoutInput.Size = new System.Drawing.Size(117, 23);
       this.group2NaturalPayoutInput.TabIndex = 17;
-      this.group2NaturalPayoutInput.Text = "4";
       // 
       // group2ClientAlivePayoutInput
       // 
@@ -996,7 +993,6 @@ namespace LifeInsurance
       this.group2ClientAlivePayoutInput.Name = "group2ClientAlivePayoutInput";
       this.group2ClientAlivePayoutInput.Size = new System.Drawing.Size(117, 23);
       this.group2ClientAlivePayoutInput.TabIndex = 16;
-      this.group2ClientAlivePayoutInput.Text = "0";
       // 
       // label22
       // 
@@ -1058,7 +1054,6 @@ namespace LifeInsurance
       this.group1PaymentAmountInput.Name = "group1PaymentAmountInput";
       this.group1PaymentAmountInput.Size = new System.Drawing.Size(144, 23);
       this.group1PaymentAmountInput.TabIndex = 9;
-      this.group1PaymentAmountInput.Text = "50000";
       // 
       // group1NumberOfContractsInput
       // 
@@ -1066,7 +1061,6 @@ namespace LifeInsurance
       this.group1NumberOfContractsInput.Name = "group1NumberOfContractsInput";
       this.group1NumberOfContractsInput.Size = new System.Drawing.Size(144, 23);
       this.group1NumberOfContractsInput.TabIndex = 8;
-      this.group1NumberOfContractsInput.Text = "5000";
       // 
       // label16
       // 
@@ -1092,7 +1086,6 @@ namespace LifeInsurance
       this.group1AccidentProbabilityInput.Name = "group1AccidentProbabilityInput";
       this.group1AccidentProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.group1AccidentProbabilityInput.TabIndex = 5;
-      this.group1AccidentProbabilityInput.Text = "0,01";
       // 
       // group1NaturalProbabilityInput
       // 
@@ -1100,7 +1093,6 @@ namespace LifeInsurance
       this.group1NaturalProbabilityInput.Name = "group1NaturalProbabilityInput";
       this.group1NaturalProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.group1NaturalProbabilityInput.TabIndex = 4;
-      this.group1NaturalProbabilityInput.Text = "0,05";
       // 
       // group1ClientAliveProbabilityInput
       // 
@@ -1108,7 +1100,6 @@ namespace LifeInsurance
       this.group1ClientAliveProbabilityInput.Name = "group1ClientAliveProbabilityInput";
       this.group1ClientAliveProbabilityInput.Size = new System.Drawing.Size(117, 23);
       this.group1ClientAliveProbabilityInput.TabIndex = 3;
-      this.group1ClientAliveProbabilityInput.Text = "0,94";
       // 
       // group1AccidentPayoutInput
       // 
@@ -1116,7 +1107,6 @@ namespace LifeInsurance
       this.group1AccidentPayoutInput.Name = "group1AccidentPayoutInput";
       this.group1AccidentPayoutInput.Size = new System.Drawing.Size(117, 23);
       this.group1AccidentPayoutInput.TabIndex = 2;
-      this.group1AccidentPayoutInput.Text = "9";
       // 
       // group1NaturalPayoutInput
       // 
@@ -1124,7 +1114,6 @@ namespace LifeInsurance
       this.group1NaturalPayoutInput.Name = "group1NaturalPayoutInput";
       this.group1NaturalPayoutInput.Size = new System.Drawing.Size(117, 23);
       this.group1NaturalPayoutInput.TabIndex = 1;
-      this.group1NaturalPayoutInput.Text = "3";
       // 
       // group1ClientAlivePayoutInput
       // 
@@ -1132,13 +1121,12 @@ namespace LifeInsurance
       this.group1ClientAlivePayoutInput.Name = "group1ClientAlivePayoutInput";
       this.group1ClientAlivePayoutInput.Size = new System.Drawing.Size(117, 23);
       this.group1ClientAlivePayoutInput.TabIndex = 0;
-      this.group1ClientAlivePayoutInput.Text = "0";
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(868, 648);
+      this.ClientSize = new System.Drawing.Size(868, 581);
       this.Controls.Add(this.tabControl1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.MaximizeBox = false;
@@ -1220,8 +1208,6 @@ namespace LifeInsurance
     private System.Windows.Forms.TextBox group2NaturalPayoutInput;
     private System.Windows.Forms.TextBox group2ClientAlivePayoutInput;
     private System.Windows.Forms.Label label22;
-    private System.Windows.Forms.TextBox groupNumberOfContractsInput;
-    private System.Windows.Forms.TextBox textBox9;
     private System.Windows.Forms.Label label30;
     private System.Windows.Forms.Label label29;
     private System.Windows.Forms.Label label28;
@@ -1233,28 +1219,20 @@ namespace LifeInsurance
     private System.Windows.Forms.Label label33;
     private System.Windows.Forms.Label label32;
     private System.Windows.Forms.TextBox group1Dispersion;
-    private System.Windows.Forms.TextBox group1AverageRisc;
     private System.Windows.Forms.Label label31;
     private System.Windows.Forms.Label label44;
     private System.Windows.Forms.TextBox group1Net;
     private System.Windows.Forms.Label label43;
-    private System.Windows.Forms.TextBox textBox11;
     private System.Windows.Forms.Label label42;
-    private System.Windows.Forms.TextBox textBox10;
     private System.Windows.Forms.Label label41;
-    private System.Windows.Forms.TextBox textBox8;
     private System.Windows.Forms.Label label40;
-    private System.Windows.Forms.TextBox textBox7;
     private System.Windows.Forms.Label label39;
     private System.Windows.Forms.TextBox dispersionSum;
     private System.Windows.Forms.Label label38;
     private System.Windows.Forms.Label label37;
     private System.Windows.Forms.Label label36;
-    private System.Windows.Forms.TextBox textBox5;
-    private System.Windows.Forms.TextBox textBox4;
     private System.Windows.Forms.Label label35;
     private System.Windows.Forms.Label label45;
-    private System.Windows.Forms.TextBox textBox13;
     private System.Windows.Forms.Label label52;
     private System.Windows.Forms.Label label51;
     private System.Windows.Forms.Label label50;
@@ -1270,6 +1248,7 @@ namespace LifeInsurance
     private System.Windows.Forms.TextBox group2InsuranceFee;
     private System.Windows.Forms.TextBox group2Dispersion;
     private System.Windows.Forms.TextBox relativeSurcharge;
+    private System.Windows.Forms.TextBox quantileInput;
   }
 }
 
